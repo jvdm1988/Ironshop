@@ -1,7 +1,5 @@
 <h2> Edit a Product </h2>
 
-productDetails._id
-
 <form method="post" action="/products/update?myId=<%=productDetails._id %>">
   <label for="product-name-input"> Product Name </label>
   <input  id="product-name-input" type="text"
@@ -14,7 +12,7 @@ productDetails._id
   <br>
 
   <label for="product-image-input"> Image Url </label>
-  <input  id="product-image-input" type="url"
+  <input  id="product-image-input" type="text"
             name="productImageUrl" value="<%= productDetails.imageUrl %>">
   <br>
 

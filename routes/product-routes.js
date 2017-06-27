@@ -73,4 +73,26 @@ router.get("/products/edit", (req, res, next) => {
   );
 });
 
+//STEP #1 of form submission for UPDATING a product
+router.post("/products/update", (req, res, next) => {
+  ProductModel.findByIdAndUpdate (
+    req.query.myId,     //1st arg -> id of document to update
+    {                   //2nd arg -> object of fields to update
+      name: req.body.productName,
+      price: req.body.productPrice,
+      imageUrl: req.body.productImageUrl,
+      description: req.body.productDescription,
+    },
+    (err, productFromDb) => {   //3rd arg -> callback
+      if (err) {
+        next(err);
+        return;
+      }
+      res.redirect("/products/details?myId=" + productFromDb._id);
+
+    }
+  );
+});
+
+
 module.exports = router;
