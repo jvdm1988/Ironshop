@@ -8,10 +8,10 @@ const myProductSchema = new Schema({
   description: { type: String }
 });
 
-const Product = mongoose.model("Product", myProductSchema);
+const ProductModel = mongoose.model("Product", myProductSchema);
 
 //collections name is automatically determined by Mongoose
 //product -> products -> db.products.find()
 
 
-module.exports = Product;
+module.exports = ProductModel;
