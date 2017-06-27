@@ -25,7 +25,7 @@ router.get("/products/new", (req, res, next) =>  {
 
 // STEP #2 of form submission for a new product-views
 router.post("/products", (req, res, next) => {
-  const theProduct = new productModel({
+  const theProduct = new ProductModel({
   name: req.body.productName,
   price: req.body.productPrice,
   imageUrl: req.body.productImageUrl,
@@ -37,8 +37,11 @@ theProduct.save((err) => {
     next (err);
     return;
   }
+  //STEP #3 of form submission for a new product
   // if succesfully, redirect to a URL
-  res.redirect("/?????");
+  res.redirect("/products");
+  // redirect is to get away from form page. this to avoid
+  // its being refreshed and duplicate the data .
 });
 });
 
