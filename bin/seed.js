@@ -12,19 +12,19 @@ const productInfoArray = [
   {
     name: "Phone Case",
     price: 9.99,
-    imageURL: "https://www.amazon.co.uk/Cases-Covers-Mobile-Phone-Accessories-Phones/b?node=340321031",
+    imageUrl: "https://www.amazon.co.uk/Cases-Covers-Mobile-Phone-Accessories-Phones/b?node=340321031",
     description:"Protects your phone."
   },
   {
     name: "Bean Bag",
     price: 25,
-    imageURL: "https://media2.giphy.com/media/xUA7b7qKc7hZbMU4GA/200_s.gif#2-grid1",
+    imageUrl: "https://media2.giphy.com/media/xUA7b7qKc7hZbMU4GA/200_s.gif#2-grid1",
     description:"Very comfortable, you can fall on it."
   },
   {
     name: "Tissues",
     price: 13.70,
-    imageURL: "https://images-na.ssl-images-amazon.com/images/I/51HhSQ1nxrL._AC_US436_FMwebp_QL65_.jpg",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/I/51HhSQ1nxrL._AC_US436_FMwebp_QL65_.jpg",
     description:"Capture all debris from any nostrill."
   }
 ];

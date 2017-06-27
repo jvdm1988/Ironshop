@@ -45,4 +45,32 @@ theProduct.save((err) => {
 });
 });
 
+router.get("/products/details", (req, res, next) => {
+ProductModel.findById(
+  req.query.myId,
+  (err, productFromDb) => {
+    if (err) {
+      next (err);
+      return;
+    }
+      res.locals.productDetails = productFromDb;
+    res.render("product-views/product-details-view.ejs");
+    }
+  );
+});
+//STEP #1 of form submission for UPDATING a product
+router.get("/products/edit", (req, res, next) => {
+  ProductModel.findById(
+    req.query.myId,
+    (err, productFromDb) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      res.locals.productDetails = productFromDb;
+      res.render("product-views/edit-product-view.ejs");
+    }
+  );
+});
+
 module.exports = router;
