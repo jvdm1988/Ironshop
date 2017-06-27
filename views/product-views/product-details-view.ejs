@@ -7,3 +7,16 @@
 <p>  $<%= productDetails.price %>. </p>
 
 <p> <%= productDetails.description %></p>
+
+
+<a href="/products/<%=productDetails._id%>/edit"> Edit Product </a>
+<br>
+
+
+<!-- (POST or GET is the same in this case) -->
+<!-- <a href="/products/<%=productDetails._id%>/delete"> Delete Product</a>
+<br>  <!- (GET) -->
+
+<form method="post" action="/products/<%= productDetails._id %>/delete">
+  <button> Delete Product </button>  <!-- (POST) -->
+</form>

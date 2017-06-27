@@ -45,9 +45,11 @@ theProduct.save((err) => {
 });
 });
 
-router.get("/products/details", (req, res, next) => {
+// :myId is only written in the routes.js file
+router.get("/products/:myId/details", (req, res, next) => {
+                // req.params.myId
 ProductModel.findById(
-  req.query.myId,
+  req.params.myId,
   (err, productFromDb) => {
     if (err) {
       next (err);
@@ -59,9 +61,9 @@ ProductModel.findById(
   );
 });
 //STEP #1 of form submission for UPDATING a product
-router.get("/products/edit", (req, res, next) => {
+router.get("/products/:myId/edit", (req, res, next) => {
   ProductModel.findById(
-    req.query.myId,
+    req.params.myId,
     (err, productFromDb) => {
       if (err) {
         next(err);
@@ -74,9 +76,9 @@ router.get("/products/edit", (req, res, next) => {
 });
 
 //STEP #1 of form submission for UPDATING a product
-router.post("/products/update", (req, res, next) => {
+router.post("/products/:myId/update", (req, res, next) => {
   ProductModel.findByIdAndUpdate (
-    req.query.myId,     //1st arg -> id of document to update
+    req.params.myId,     //1st arg -> id of document to update
     {                   //2nd arg -> object of fields to update
       name: req.body.productName,
       price: req.body.productPrice,
@@ -88,8 +90,38 @@ router.post("/products/update", (req, res, next) => {
         next(err);
         return;
       }
-      res.redirect("/products/details?myId=" + productFromDb._id);
+      res.redirect("/products/" + productFromDb._id);
 
+    }
+  );
+});
+
+
+// GET version of deleting a product (only the 1st line is different)
+
+// router.get("/products/:myId/delete", (req, res, next) => {
+//   ProductModel.findByIdAndRemove (
+//     req.params.myId,
+//     (err, productFromDb) => {
+//       if (err) {
+//         next(err);
+//         return;
+//       }
+//       res.redirect("/products");
+//     }
+//   );
+// });
+
+// POST version of deleting a product (only the 1st line is diffrent)
+router.post("/products/:myId/delete", (req, res, next) => {
+  ProductModel.findByIdAndRemove (
+    req.params.myId,
+    (err, productFromDb) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      res.redirect("/products");
     }
   );
 });
